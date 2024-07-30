@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+   
+    <header>
+        <div class="header-content">
+            <h1>TechVisions</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+            </nav>
+            
+            
+        </div>
+    </header>
+
+
+    <div class="chatbox" id="chatbox">
+        <!-- Your chatbox content here -->
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/stickers/100/human-head.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+        </div>
+    </div>
+
+
+
+
+  
+ <div id="home" class="page" style="display: block;">
+    <h2>Welcome to TechVisions - Home Page</h2>
+    <p>Explore, Discover, Connect</p>
+
+        <p>Welcome to our digital home, where possibilities unfold and journeys begin. We are thrilled to have you here and invite you to embark on an exciting exploration through our virtual space. At TechVisions, we are at the forefront of technological innovation, driven by a passion for making the complexities of the digital world accessible and user-friendly. Our journey began with a vision to redefine the tech landscape, making cutting-edge solutions available to individuals and businesses alike.</p>
+
+        <p>As a collective of tech enthusiasts, creators, and industry experts, our mission is twofold: to empower you with the latest in technology and to build a vibrant community that shares a common love for all things tech. Our commitment goes beyond providing services and products; it extends to creating an inclusive space where everyone can thrive in the digital era.</p>
+
+        <h4>Our Core Values:</h4>
+        <ul>
+            <li><strong>Innovation:</strong> We believe in embracing the spirit of innovation to constantly push boundaries and introduce groundbreaking solutions. Our team is dedicated to staying ahead of the curve, ensuring you have access to the latest tech advancements.</li>
+            <li><strong>Excellence:</strong> At TechVisions, excellence is not just a goal; it's a standard. We meticulously curate our services and products to deliver unparalleled quality, aiming to exceed your expectations at every interaction.</li>
+            <li><strong>Customer-Centricity:</strong> Your satisfaction is our driving force. Our customer-centric approach is woven into the fabric of our organization, guiding everything from product development to customer support. We are here to make your tech journey smooth and enjoyable.</li>
+            <li><strong>Community:</strong> We believe that the best experiences are shared experiences. Our community is the heartbeat of TechVisions, bringing together tech enthusiasts from diverse backgrounds to learn, grow, and connect. Join us in building a tech-savvy community that thrives on shared knowledge and passion.</li>
+        </ul>
+
+        <h4>Our Vision:</h4>
+        <p>To be a catalyst for positive change in the tech world by providing accessible, innovative, and user-friendly solutions. We envision a future where technology enriches lives and empowers individuals and businesses to reach new heights.</p>
+
+        <h4>Why TechVisions:</h4>
+        <p>Choosing TechVisions means choosing a tech partner that values your unique journey in the digital landscape. Whether you're seeking expert tech services, cutting-edge products, or a community to connect with, TechVisions is here to be your guide and companion in the ever-evolving world of technology. Explore, discover, and connect with us as we pave the way for a tech-savvy future.</p>
+
+        <h4>Who We Are:</h4>
+        <p>At TechVisions, we are more than just a website; we are a community of tech enthusiasts, creators, and dreamers. Our mission is to simplify the world of technology and make it accessible to everyone. Whether you're a first-time visitor or a familiar face, we extend our warmest greetings.</p>
+
+        <h4>What We Offer:</h4>
+        <p>Discover Our Services: Dive into a world of possibilities with our diverse range of services. From cutting-edge software solutions to personalized tech consultations, we cater to individuals and businesses seeking tech excellence. Our commitment is to deliver excellence and innovation in every aspect.</p>
+
+        <p>Explore Our Products: Browse through our curated selection of products designed to enhance your digital lifestyle. From smart gadgets to powerful software tools, each item reflects our dedication to quality, functionality, and style. Find the perfect tech companion that resonates with your needs.</p>
+
+        <h4>Stay Updated:</h4>
+        <p>Latest News and Updates: Stay in the loop with our latest news and updates. From tech event highlights to product launches, we keep you informed about everything happening in our dynamic tech ecosystem. Subscribe to our newsletter for exclusive insights and offers.</p>
+
+        <h4>Engage with Our Community:</h4>
+        <p>Connect with like-minded tech enthusiasts in our vibrant community. Share your experiences, ask tech-related questions, and be a part of conversations that matter. Our community is a space for learning, growing, and fostering connections.</p>
+
+        <h4>Why Choose Us:</h4>
+        <p>Commitment to Excellence: We are dedicated to delivering excellence in everything we do. Our team of tech experts ensures that each service, product, and interaction reflects our commitment to quality and customer satisfaction.</p>
+
+        <p>Innovation at Its Core: Innovation is the heartbeat of our organization. We strive to push tech boundaries, embrace change, and bring cutting-edge solutions to your fingertips. Expect nothing but the latest and most advanced offerings.</p>
+
+        <p>Customer-Centric Approach: Your tech satisfaction is our priority. Our customer-centric approach is designed to make your tech experience seamless and enjoyable. From easy navigation on our website to responsive tech support, we are here for you.</p>
+
+        <h4>Join Our Journey:</h4>
+        <p>As we continue to evolve and grow, we invite you to join us on this exciting tech journey. Explore our website, engage with our tech content, and become a part of our thriving tech community. Together, let's make every tech moment count. Thank you for visiting TechVisions. We look forward to creating lasting tech memories with you.</p>
+    
+
+
+    
+    </div>
+
+   
+    <footer>
+        &copy; 2023 TechVisions
+    </footer>
+
+    
+
+    <script>
+
+        function showPage(pageId) {
+            // Hide all pages
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+
+            // Show the selected page
+            var selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+
+            // Always show the chatbox
+            var chatbox = document.getElementById('chatbox');
+            if (chatbox) {
+                chatbox.style.display = 'block';
+            }
+             // Show the selected page
+    var selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.style.display = 'block';
+
+
+    }
+        }
+        var chatboxButton = document.getElementById('chatbox-button');
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        chatboxButton.classList.add('hidden');
+    } else {
+        chatboxButton.classList.remove('hidden');
+    }
+};
+        
+    </script>
+
+<script>
+    function navigateHome() {
+        window.location.href = "{{ url_for('home') }}";
+    }
+</script>
+
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    
+</body>
+</html>

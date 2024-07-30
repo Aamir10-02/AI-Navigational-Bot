@@ -1,0 +1,126 @@
+{
+    "intents": [
+      {
+        "tag": "welcome",
+        "patterns": [
+          
+          "How are you"
+          
+        ],
+        "responses": [
+          "I am fine, what about you"
+        
+        ]
+      },
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hey",
+          "Is anyone there?",
+          "Hello",
+          "Good day"
+        ],
+        "responses": [
+          "Hey :-)",
+          "Hello, thanks for visiting",
+          "Hi there, what can I do for you?",
+          "Hi there, how can I help?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": [
+          "See you later, thanks for visiting",
+          "Have a nice day",
+          "Bye! Come back again soon."
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "Work",
+        "patterns": [
+          "Which type of work do you do?",
+          "What can you do?",
+          "how will you help?"
+        ],
+        "responses": [
+          "I will help you by navigating you throug out the website",
+          "By helping you to find the information you need in this website"
+        ]
+      },
+      
+        {
+          "tag": "about_techvisions",
+          "patterns": ["core values", "techvisions"],
+          "responses": [
+            "Core Values: - Innovation: Embracing the spirit of innovation to constantly push boundaries and introduce groundbreaking solutions. you can find more information about it on this <a href='http://127.0.0.1:5000/'>Home</a>" 
+          ]
+        },
+        {
+          "tag": "get_in_touch",
+          "patterns": ["address", "your address"],
+          "responses": [
+            "123 Tech Street, Digital City, Webland.  You can find more information about it on this <a href='http://127.0.0.1:5000/contact'>Contact Us</a>" 
+          ]
+        },
+        {
+          "tag": "connect",
+          "patterns": ["email", "your email address"],
+          "responses": [
+            "Our E-mail address is info@mywebsite.com. You can find more information about it on this <a href='http://127.0.0.1:5000/contact'>Contact Us</a>" 
+          ]
+        },
+        {
+          "tag": "cell",
+          "patterns": ["phone number", "phone no", "your phone number"],
+          "responses": [
+            "you can call us on +1 (555) 123-4567. You can find more information about it on this <a href='http://127.0.0.1:5000/contact'>Contact Us</a>" 
+          ]
+        },
+        
+      {
+        "tag": "reject",
+        "patterns": [
+          "can you directly open this page...",
+          "Download the information for me ",
+          ""
+        ],
+        "responses": [
+          "its out of my range",
+          "Sorry, you need to do it by your self, i can only give you the button link"
+        ]
+      },
+      {
+        
+        
+          "tag": "navigate home",
+          "patterns": ["home page", "Take me to home page"],
+          "responses": [
+              "Sure! Here is the link to the Home page: <a href='http://127.0.0.1:5000/'>Home</a>"
+              
+          ]
+      
+      
+    },
+    {
+        "tag": "navigate about",
+        "patterns": ["about page", "Take me to about page"],
+        "responses": [
+            "Sure! Here is the link to the About Us page: <a href='http://127.0.0.1:5000/about'>About Us</a>"
+        ]    
+    },
+    {
+        "tag": "navigate contact",
+        "patterns": ["contact page", "Take me to contact page"],
+        "responses": [
+            "Sure! Here is the link to the Contact Us page: <a href='http://127.0.0.1:5000/contact'>Contact Us</a>"
+        ]
+    }
+  ]
+}

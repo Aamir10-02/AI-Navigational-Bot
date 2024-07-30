@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - TechVisions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+     <header>
+        <div class="header-content">
+            <h1>TechVisions</h1>
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+            </nav>
+            
+            
+        </div>
+    </header> 
+
+    <div class="chatbox" id="chatbox">
+        <!-- Your chatbox content here -->
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/stickers/100/human-head.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+        </div>
+    </div>
+
+    <div id="contact" class="page" >
+        <h2>Contact Us - TechVisions</h2>
+        
+        <p>Welcome to My Website, where your connection with us is highly valued! Whether you have questions, feedback, or specific inquiries, your engagement is crucial to enhancing your experience with our platform. Our team is dedicated to providing the best possible support and assistance promptly. Your thoughts matter, and we encourage you to reach out through the contact information provided below. Let's embark on a journey together to make your interaction with My Website seamless and enjoyable.</p>
+
+
+        <h4>Get in Touch</h4>
+        <p>Do you have a specific question or need assistance with anything related to My Website? Our dedicated support team is here to guide you through any challenges you may encounter or provide additional information about our wide range of services and products. At My Website, customer satisfaction is our top priority, and our support team is committed to ensuring that you have a smooth and enjoyable experience. Feel free to reach out, and let us assist you on your journey with My Website.</p>
+
+
+        <h4>Contact Information</h4>
+        <p><b>Address:</b> 123 Tech Street, Digital City, Webland</p>
+        <p><b>Email:</b> info@mywebsite.com</p>
+        <p><b>Phone:</b> +1 (555) 123-4567</p>
+
+        <h4>Visit Our Office</h4>
+        <p>If you're in the neighborhood, feel free to visit our office. We're always happy to meet our users in person. Our office is designed to be an open and collaborative space where ideas come to life.</p>
+
+        <h4>Business Inquiries</h4>
+        <p>For business-related inquiries, partnerships, and collaborations, please contact our business development team. We're open to exploring new opportunities and creating meaningful connections in the digital landscape.</p>
+
+        <h4>Connect Online</h4>
+        <p>Stay connected with us on social media! Follow us on Facebook, Twitter, and Instagram to get the latest updates, tech tips, and engage with our vibrant online community. We value every interaction and look forward to connecting with you!</p>
+    
+
+    </div>
+    
+
+
+    <footer>
+        &copy; 2023 TechVisions
+    </footer>
+
+    
+
+    <script>
+
+        function showPage(pageId) {
+            // Hide all pages
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+
+            // Show the selected page
+            var selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+
+            // Always show the chatbox
+            var chatbox = document.getElementById('chatbox');
+            if (chatbox) {
+                chatbox.style.display = 'block';
+            }
+             // Show the selected page
+    var selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.style.display = 'block';
+
+
+    }
+        }
+        var chatboxButton = document.getElementById('chatbox-button');
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        chatboxButton.classList.add('hidden');
+    } else {
+        chatboxButton.classList.remove('hidden');
+    }
+};
+        
+    </script>
+
+<script>
+    function navigateContact() {
+        window.location.href = "{{ url_for('contact') }}";
+    }
+</script>
+
+
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    
+</body>
+</html>
