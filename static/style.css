@@ -139,18 +139,6 @@ body {
     border-top-right-radius: 20px;
 }
 
-/* HEADER */
-/* .chatbox__header {
-    background: var(--primaryGradient);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: var(--primaryBoxShadow);
-} */
 .chatbox__header {
     position: sticky;
     top: 0;
@@ -208,16 +196,7 @@ body {
 
 /* FOOTER */
 .chatbox__footer {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 20px;
-    background: var(--secondaryGradient);
-    box-shadow: var(--secondaryBoxShadow);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-     */
+   
      margin-top: 20px;
     display: flex;
     align-items: center;
@@ -304,4 +283,18 @@ h2 {
     color: black;
     text-align: left;
     margin: 20px;
+}
+
+#voiceButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#voiceButton:hover {
+    background-color: #c4a4d1;
 }

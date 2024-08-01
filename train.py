@@ -1,104 +1,111 @@
-import json 
-from nltk_utils import tokenize, stem, bag_of_words
+import json
 import numpy as np
-
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from model import NeuralNet
+from nltk_utils import tokenize, stem, bag_of_words
 
-with open('intents.json', 'r') as f: #reads the content of intent.json
-    intents = json.load(f)
+# Load intent data from JSON
+with open('intents.json', 'r') as file:
+    intent_data = json.load(file)
 
-# empty arrays or list
-all_words = []
-tags = []
-xy = []         #Initializes empty lists (all_words, tags, xy) to store processed data.
-for intent in intents['intents']:
-    tag = intent['tag']
-    tags.append(tag)
+# Initialize lists for storing words and tags
+word_list = []
+tag_list = []
+data_points = []
+
+# Process each intent and pattern
+for intent in intent_data['intents']:
+    category = intent['tag']
+    tag_list.append(category)
     for pattern in intent['patterns']:
-        w = tokenize(pattern)
-        all_words.extend(w)
-        xy.append((w, tag))
+        tokens = tokenize(pattern)
+        word_list.extend(tokens)
+        data_points.append((tokens, category))
 
-ignore_words = ['?', '!', '.', ',']
-all_words = [stem(w) for w in all_words if w not in ignore_words]
-all_words = sorted(set(all_words))
-tags = sorted(set(tags))
+# Remove punctuation and stem words
+ignore_chars = ['?', '!', '.', ',']
+word_list = [stem(word) for word in word_list if word not in ignore_chars]
+word_list = sorted(set(word_list))
+tag_list = sorted(set(tag_list))
 
+# Prepare training data
+features = []
+labels = []
+for (sentence, category) in data_points:
+    bag = bag_of_words(sentence, word_list)
+    features.append(bag)
+    label = tag_list.index(category)
+    labels.append(label)
 
-X_train = []
-y_train = []
-for (pattern_sentence, tag) in xy:
-    bag = bag_of_words(pattern_sentence, all_words)
-    X_train.append(bag)
+features = np.array(features)
+labels = np.array(labels)
 
-    label = tags.index(tag)
-    y_train.append(label) 
-
-X_train = np.array(X_train)
-y_train = np.array(y_train)
-
-class ChatDataset(Dataset):
+# Define custom dataset class
+class DialogueDataset(Dataset):
     def __init__(self):
-        self.n_samples = len(X_train)
-        self.x_data = X_train
-        self.y_data = y_train
+        self.num_samples = len(features)
+        self.inputs = features
+        self.targets = labels
 
     def __getitem__(self, index):
-        return self.x_data[index], self.y_data[index]
+        return self.inputs[index], self.targets[index]
 
     def __len__(self):
-        return self.n_samples
-    
-batch_size = 12  #number of training samples utilized in one iteration
-hidden_size = 12
-output_size = len(tags)
-input_size = len(X_train[0])
+        return self.num_samples
+
+# Hyperparameters
+batch_size = 12
+hidden_dim = 12
+num_classes = len(tag_list)
+input_dim = len(features[0])
 learning_rate = 0.001
-num_epochs = 1000
+epochs = 1000
 
+# Create dataset and data loader
+dataset = DialogueDataset()
+data_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-dataset = ChatDataset()
-train_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+# Set device for training
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = NeuralNet(input_dim, hidden_dim, num_classes).to(device)
 
-device = torch.device('cuda' if torch.cuda. is_available() else 'cpu')
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
-
-# loss and optimizer
-criterion = nn.CrossEntropyLoss()
+# Define loss function and optimizer
+loss_function = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-for epoch in range(num_epochs):
-    for (words, labels) in train_loader:
-        words = words.to(device)
-        labels = labels.to(dtype=torch.long).to(device)
+# Training loop
+for epoch in range(epochs):
+    for (inputs, targets) in data_loader:
+        inputs = inputs.to(device)
+        targets = targets.to(dtype=torch.long).to(device)
 
-        # forward
-        outputs = model(words)
-        loss = criterion(outputs, labels)
+        # Forward pass
+        outputs = model(inputs)
+        loss = loss_function(outputs, targets)
 
-        # backward and optimzer step
+        # Backward pass and optimization
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
     
-    if (epoch +1) % 100 == 0:
-        print(f'epoch {epoch+1}/{num_epochs}, loss={loss.item():.4f}')
+    if (epoch + 1) % 100 == 0:
+        print(f'Epoch {epoch+1}/{epochs}, Loss={loss.item():.4f}')
 
-print(f'final loss, loss={loss.item():.4f}')
+print(f'Final loss: Loss={loss.item():.4f}')
 
-data ={
+# Save model and metadata
+model_data = {
     "model_state": model.state_dict(),
-    "input_size": input_size,
-    "output_size": output_size,
-    "hidden_size": hidden_size,
-    "all_words": all_words,
-    "tags": tags
+    "input_dim": input_dim,
+    "hidden_dim": hidden_dim,
+    "num_classes": num_classes,
+    "word_list": word_list,
+    "tag_list": tag_list
 }
 
-FILE = "data.pth"
-torch.save(data, FILE)
+file_path = "model_data.pth"
+torch.save(model_data, file_path)
 
-print(f'training complete. file saved to {FILE}')
+print(f'Training complete. Model saved to {file_path}')
