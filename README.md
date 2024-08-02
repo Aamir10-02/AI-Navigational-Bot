@@ -59,13 +59,13 @@ This project demonstrates the integration of natural language processing (NLP) w
 3. **Install dependencies**
     
     pip install -r requirements.txt
-'''requirements
+'''requirements(the version may change in other system)
 
-Flask==2.3.3
-torch==2.0.0
-nltk==3.8.1
-numpy==1.25.1
-pyttsx3==2.90
+Flask==2.3.3,
+torch==2.0.0,
+nltk==3.8.1,
+numpy==1.25.1,
+pyttsx3==2.90,
 SpeechRecognition==3.10.0
     
 
