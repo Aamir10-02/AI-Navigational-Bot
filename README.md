@@ -1,9 +1,6 @@
 # AI Chatbot with Flask Web Interface
 
-Welcome to the AI Chatbot project! This repository contains a 
-sophisticated AI-powered chatbot implemented using PyTorch, Flask, 
-and various NLP libraries. The chatbot is capable of both text and voice interactions, 
-making it versatile for various applications.
+Welcome to the AI Chatbot project! This repository contains a sophisticated AI-powered chatbot implemented using PyTorch, Flask, and various NLP libraries. The chatbot is capable of both text and voice interactions, making it versatile for various applications.
 
 ## Table of Contents
 
@@ -45,31 +42,23 @@ This project demonstrates the integration of natural language processing (NLP) w
 ### Installation Steps
 
 1. **Clone the repository**
-    
-    git clone https://github.com/Aamir10-02/AI-Navigational-Bot.git
-    cd AI-Navigational-Bot
-    
+    ```bash
+    git clone https://github.com/yourusername/ai-chatbot.git
+    cd ai-chatbot
+    ```
 
 2. **Create a virtual environment**
-    
+    ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    
+    ```
 
 3. **Install dependencies**
-    
+    ```bash
     pip install -r requirements.txt
-'''requirements(the version may change in other system)
+    ```
 
-Flask==2.3.3,
-torch==2.0.0,
-nltk==3.8.1,
-numpy==1.25.1,
-pyttsx3==2.90,
-SpeechRecognition==3.10.0
-    
-
-5. **Download NLTK data**
+4. **Download NLTK data**
     ```python
     import nltk
     nltk.download('punkt')
@@ -80,9 +69,9 @@ SpeechRecognition==3.10.0
 ### Running the Web Application
 
 1. **Start the Flask app**
-    
+    ```bash
     python application.py
-    
+    ```
 
 2. **Access the application**
     Open your web browser and navigate to `http://127.0.0.1:5000`.
@@ -105,5 +94,55 @@ my-flask-app/
 │   ├── base.html
 │   ├── about.html
 │   └── contact.html
-└── static/                 # Static files (CSS, JS, images)
-    └── styles.css
+└── static/                 # Static files 
+```
+
+## Model Training
+
+The model is trained using intents data provided in intents.json. Follow the steps in chat.py to preprocess the data and train the model. The trained model is saved as data.pth.
+
+
+## Acknowledgements
+NLTK: Natural Language Toolkit for text processing.
+PyTorch: Deep learning framework for building and training the neural network.
+Flask: Web framework for creating the web interface.
+SpeechRecognition: Library for converting speech to text.
+pyttsx3: Text-to-speech conversion library.
+
+requirements.txt file should include following packages 
+
+```plaintext
+Flask
+torch
+nltk
+numpy
+pyttsx3
+SpeechRecognition
+```
+Installing the Packages:
+
+
+```plaintext
+pip install flask
+```
+```plaintext
+pip install nltk
+```
+```plaintext
+pip install numpy
+```
+If required then download lower version of numpy.
+```plaintext
+pip install numpy <2
+```
+
+```plaintext
+pip install pyttsx3
+```
+```plaintext
+pip install SpeechRecognition
+```
+## License
+This project is licensed under the
+[MIT](https://github.com/Aamir10-02/AI-Navigational-Bot/blob/main/LICENSE) License - see the LICENSE file for details. 
+This project is a great demonstration of combining deep learning with web development to create a functional and interactive application. I hope you enjoy using it as much as I enjoyed building it!
