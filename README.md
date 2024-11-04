@@ -43,7 +43,7 @@ This project demonstrates the integration of natural language processing (NLP) w
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/ai-chatbot.git
+    git clone https://github.com/Aamir10-02/ai-chatbot.git
     cd ai-chatbot
     ```
 
