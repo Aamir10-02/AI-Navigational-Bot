@@ -157,5 +157,6 @@ In this image, the bot provides answers even when the user hasn not completed th
 The above image illustrates the bot's functionality in understanding and responding accurately to user queries.
 ```
 ![2](https://github.com/user-attachments/assets/4e5bcc71-2bf1-4ecc-b56e-403bf4cbb2e3)
-
-
+```plaintext
+The above image, shows how bot understand user questions and retrieve the most relevant responses from its database.
+```
