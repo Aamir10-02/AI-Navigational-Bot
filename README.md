@@ -146,3 +146,11 @@ pip install SpeechRecognition
 This project is licensed under the
 [MIT](https://github.com/Aamir10-02/AI-Navigational-Bot/blob/main/LICENSE) License - see the LICENSE file for details. 
 This project is a great demonstration of combining deep learning with web development to create a functional and interactive application. I hope you enjoy using it as much as I enjoyed building it!
+
+
+![1](https://github.com/user-attachments/assets/7f5acdf5-faec-4e5d-8b76-1d0a06c78414)
+
+![3](https://github.com/user-attachments/assets/3c37fb75-430f-4992-9898-d4313044f82d)
+![2](https:![2](https://github.com/user-attachments/assets/4e5bcc71-2bf1-4ecc-b56e-403bf4cbb2e3)
+![3](https://github.com/user-attachments/assets/09cd22a7-dde1-4fe4-82c6-4d537a3032c9)
+
